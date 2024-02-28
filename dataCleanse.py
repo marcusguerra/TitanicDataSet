@@ -3,15 +3,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+df = pd.read_csv('test.csv')
+
+null_counts = df.isnull().sum()
+
+print("Quantidade de valores nulos por coluna:")
+print(null_counts)
+
 df = pd.read_csv('train.csv')
 
-dfMulher = df[df['Sex'] == 'female']
-total  = dfMulher[dfMulher['Survived'] == 1]
-print(len(total))
-print(len(dfMulher))
+null_counts = df.isnull().sum()
 
-def regressaoLogistica(x):
-    exp = np.exp(x)
-    return (exp/(1 + exp))
-
-print(regressaoLogistica(-0.48))
+print("Quantidade de valores nulos por coluna:")
+print(null_counts)
